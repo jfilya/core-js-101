@@ -225,7 +225,10 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
   let end = '';
   start = (isStartIncluded) ? '[' : '(';
   end = (isEndIncluded) ? ']' : ')';
-  const s = (a < b) ? `${start}${a}, ${b}${end}` : `${start}${b}, ${a}${end}`;
+  let s = '';
+  if (a < b) {
+    s = `${start}${a}, ${b}${end}`;
+  } else s = `${start}${b}, ${a}${end}`;
   return s;
 }
 
